@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    color: #ffffff;
+    background-color: #221f1f;
+}
+
+
+/* Rounded container with blur */
+.blur-container {
+    background: rgba(0, 0, 0, 0.534);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.719);
+    padding: 2em;
+
+    /* center margin */
+    margin: 0 auto;
+    width: 90%;
+    max-width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    /* center all the items inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+h1 {
+    color: #d0c3ff; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra suave para el texto */
+}
+
+#controls {
+    margin: 20px;
+}
+
+.tablero-container {
+    width: 100%;
+    max-height: 70vh; 
+    overflow-x: auto; 
+    overflow-y: auto; 
+    display: flex;
+    justify-content: center; 
+    padding: 1em; 
+}
+
+#tablero {
+    display: grid;
+    gap: 0.8em;
+    background-color: transparent;
+    margin-top: 1em;
+    justify-items: center; 
+}
+
+
+
+.celda {
+    width: 2rem;
+    height: 2rem;
+    background-color: #88683d; 
+    color: #5B4B93; 
+    font-weight: bold;
+    text-align: center;
+    line-height: 2rem; 
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 
+                0 0 5px rgba(0, 39, 0, 0.5); 
+    transition: background-color 0.3s, transform 0.1s; 
+    border: 2px solid #0e5208; 
+}
+
+
+.celda:hover {
+    background-color: #3f1e06; 
+    transform: scale(1.1); 
+}
+
+.celda.desvelada {
+    background-color: #211ebd56; 
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.bandera {
+    background-color: red; 
+    color: white; 
+    border: 2px solid yellow; 
+    position: relative; 
+}
+
+
+
+button {
+    background-color: #5B4B93; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s; 
+}
+
+button:hover {
+    background-color: #6A5ACD; 
+    transform: scale(1.05); 
+}
+
+/* canva */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* estilo par los inputs personalizados en custom */
+#customInputs {
+    display: flex;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+#customInputs label {
+    font-weight: bold;
+    color: #d0c3ff; 
+    font-size: 0.9em;
+    margin-bottom: 0.2em;
+}
+
+#customInputs input {
+    background-color: #3a3a3a; 
+    color: #ffffff; 
+    border: 2px solid #5B4B93; 
+    border-radius: 5px;
+    padding: 0.5em;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#customInputs input:focus {
+    border-color: #6A5ACD; 
+    box-shadow: 0 0 6px rgba(106, 90, 205, 0.5);
+}
+
+#difficulty {
+    background-color: #3a3a3a; 
+    color: #ffffff; 
+    border: 2px solid #5B4B93; 
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    appearance: none; 
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+
+#difficulty::after {
+    content: "▼"; 
+    position: absolute;
+    right: 1em;
+    color: #d0c3ff; 
+    pointer-events: none;
+}
+
+#difficulty:focus, #difficulty:hover {
+    border-color: #6A5ACD; 
+    transform: scale(1.25);
+    box-shadow: 0 0 20px rgba(106, 90, 205, 0.5);
+}
